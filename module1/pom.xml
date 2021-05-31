@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.fiasoft.tutorial.microservice</groupId>
-    <artifactId>module-1-</artifactId>
+    <artifactId>module1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>module-1-spring-boot</name>
     <description>Demo project for Spring Boot</description>
