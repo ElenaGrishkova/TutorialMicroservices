@@ -1,0 +1,155 @@
+GET http://localhost:8080/messages
+Content-Type: application/json
+
+###
+#HTTP/1.1 200
+#Content-Type: application/json
+#Transfer-Encoding: chunked
+#Date: Tue, 01 Jun 2021 16:57:35 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#[
+#  {
+#    "id": "1",
+#    "text": "Message text 1"
+#  },
+#  {
+#    "id": "2",
+#    "text": "Message text 2"
+#  },
+#  {
+#    "id": "3",
+#    "text": "Message text 3"
+#  }
+#]
+###
+
+GET http://localhost:8080/messages/2
+Content-Type: application/json
+
+###
+#HTTP/1.1 200
+#Content-Type: application/json
+#Transfer-Encoding: chunked
+#Date: Tue, 01 Jun 2021 16:58:18 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#{
+#  "id": "2",
+#  "text": "Message text 2"
+#}
+###
+
+POST http://localhost:8080/messages
+Content-Type: application/json
+
+{
+  "text": "Message text 4"
+}
+###
+#HTTP/1.1 200
+#Content-Type: application/json
+#Transfer-Encoding: chunked
+#Date: Tue, 01 Jun 2021 17:02:04 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#{
+#"text": "Message text 4",
+#"id": "4"
+#}
+###
+
+GET http://localhost:8080/messages
+Content-Type: application/json
+
+###
+#HTTP/1.1 200
+#Content-Type: application/json
+#Transfer-Encoding: chunked
+#Date: Tue, 01 Jun 2021 17:03:08 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#[
+#  {
+#    "id": "1",
+#    "text": "Message text 1"
+#  },
+#  {
+#    "id": "2",
+#    "text": "Message text 2"
+#  },
+#  {
+#    "id": "3",
+#    "text": "Message text 3"
+#  },
+#  {
+#    "text": "Message text 4",
+#    "id": "4"
+#  }
+#]
+###
+
+PUT http://localhost:8080/messages/3
+Content-Type: application/json
+
+{
+  "id": "10",
+  "text": "Message text NEW 3"
+}
+
+###
+#HTTP/1.1 200
+#Content-Type: application/json
+#Transfer-Encoding: chunked
+#Date: Tue, 01 Jun 2021 17:04:14 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#{
+#  "id": "3",
+#  "text": "Message text NEW 3"
+#}
+###
+
+DELETE http://localhost:8080/messages/1
+Content-Type: application/json
+
+###
+#HTTP/1.1 200
+#Content-Length: 0
+#Date: Tue, 01 Jun 2021 17:05:02 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#<Response body is empty>
+###
+
+GET http://localhost:8080/messages
+Content-Type: application/json
+
+###
+#HTTP/1.1 200
+#Content-Type: application/json
+#Transfer-Encoding: chunked
+#Date: Tue, 01 Jun 2021 17:05:29 GMT
+#Keep-Alive: timeout=60
+#Connection: keep-alive
+#
+#[
+#  {
+#    "id": "2",
+#    "text": "Message text 2"
+#  },
+#  {
+#    "id": "3",
+#    "text": "Message text NEW 3"
+#  },
+#  {
+#    "text": "Message text 4",
+#    "id": "4"
+#  }
+#]
