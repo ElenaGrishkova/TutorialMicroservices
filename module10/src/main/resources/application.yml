@@ -1,0 +1,22 @@
+spring:
+    kafka:
+        bootstrap-servers: localhost:9092
+    cloud:
+        stream:
+            binders:
+                binderName:
+                    type: kafka
+            bindings:
+                #Подписка на широковещательное сообщение (сообщение получают все подписчики)
+                broadcasts:
+                    destination: demo
+                #Подписка на сообщение Point-To-Point (сообщение получает один подписчик из группы)
+                directed:
+                    destination: demo-p2p
+                    group: test-p2p-group
+
+
+logging:
+    level:
+        ru.diasoft.tutorial.microservices.module10: DEBUG
+
